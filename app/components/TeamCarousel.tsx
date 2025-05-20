@@ -69,10 +69,10 @@ export default function TeamCarousel() {
               className={cn(
                 "absolute transition-all duration-200 ease-in-out rounded-2xl overflow-hidden shadow-xl cursor-pointer hover:z-30",
                 getCardPosition(index) === "center" && "z-20 scale-100 translate-x-0 border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "left-1" && "z-10 scale-85 -translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "right-1" && "z-10 scale-85 translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "left-2" && "z-0 scale-70 -translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "right-2" && "z-0 scale-70 translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
+                getCardPosition(index) === "left-1" && "z-10 scale-95 -translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
+                getCardPosition(index) === "right-1" && "z-10 scale-95 translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
+                getCardPosition(index) === "left-2" && "z-0 scale-90 -translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
+                getCardPosition(index) === "right-2" && "z-0 scale-90 translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
                 getCardPosition(index) === "hidden" && "opacity-0 scale-50",
               )}
               onClick={() => handleMemberClick(index)}
