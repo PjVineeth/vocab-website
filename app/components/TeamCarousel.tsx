@@ -85,6 +85,9 @@ export default function TeamCarousel() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   priority={index === activeIndex}
                 />
+                {getCardPosition(index) !== "center" && (
+                  <div className="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
+                )}
                 <div className={cn(
                   "absolute inset-0 flex flex-col justify-end p-2 sm:p-6 text-white bg-gradient-to-t from-black/40 to-transparent transition-opacity duration-300",
                   getCardPosition(index) === "center" ? "opacity-100" : "opacity-0 group-hover:opacity-100"

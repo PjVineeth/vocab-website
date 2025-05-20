@@ -202,9 +202,9 @@ export default function Home() {
                     Conversational AI
                   </div>
                 </div>
-                <div className="absolute right-2 md:-right-20 top-4 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+                <div className="absolute right-2 md:-right-10 top-4 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
                   <div className="bg-white rounded-full px-2 md:px-3 py-2 text-xs hover:bg-opacity-90 transition-all duration-300">
-                    Speech AI
+                    Agentic AI
                   </div>
                 </div>
                 <div className="absolute right-0 md:right-0 top-28 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
@@ -247,20 +247,36 @@ export default function Home() {
                   <br className="hidden md:block" />
                   Potential Of Your Data
                 </h2>
-                <Image
-                  src="/Datavisualization.svg"
-                  alt="Data Visualization"
-                  width={500}
-                  height={200}
-                  className="rounded-lg w-full max-w-[500px]"
-                />
+                <div className="flex gap-4">
+                  <Image
+                    src="/d1.svg"
+                    alt="Data Visualization 1"
+                    width={200}
+                    height={120}
+                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
+                  />
+                  <Image
+                    src="/d2.svg"
+                    alt="Data Visualization 2"
+                    width={200}
+                    height={120}
+                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
+                  />
+                  <Image
+                    src="/d3.svg"
+                    alt="Data Visualization 3"
+                    width={200}
+                    height={120}
+                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
               </div>
               <div className="mt-8 md:mt-0">
-                <p className="text-gray-900 mb-4">
+                <p className="text-gray-500 mb-4">
                   With our advanced AI-based analytics, clients can automate processes, enhance decision-making, and drive
                   growth.
                 </p>
-                <p className="text-gray-900">
+                <p className="text-gray-500">
                   From natural language processing, speech recognition and sentiment analysis to image recognition, our
                   expert team develops tailored solutions that transform data into actionable intelligence.
                 </p>
@@ -274,7 +290,7 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Text Analytics */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center mt-5">
                   <Image
                     src="/textanalytics.png"
@@ -295,7 +311,7 @@ export default function Home() {
               </div>
 
               {/* Audio Analytics */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center mt-5">
                   <Image
                     src="/audioanalytics.png"
@@ -316,7 +332,7 @@ export default function Home() {
               </div>
 
               {/* Image Analytics */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center mt-5">
                   <Image
                     src="/imageanalytics.png"
@@ -345,19 +361,19 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Why Choose Us?</h2>
             {/* Row 1 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-2 mb-4 md:mb-2 text-center">
-              <div className="bg-pink-100 rounded-lg p-4 md:p-6">
+              <div className="bg-pink-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(236,72,153,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Cutting-Edge AI Solutions</h3>
                 <p className="text-xs md:text-sm text-gray-700">State-of-the-art solutions for image, text, and audio analytics.</p>
               </div>
 
-              <div className="bg-orange-100 rounded-lg p-4 md:p-6">
+              <div className="bg-orange-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(251,146,60,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Data Insight Expertise</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   Specialized in extracting actionable insights from complex data patterns, sentiments, and trends.
                 </p>
               </div>
 
-              <div className="bg-blue-300 rounded-lg p-4 md:p-6">
+              <div className="bg-blue-300 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(59,130,246,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Informed Decision-Making</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   Empower businesses with data-driven insights for strategic decisions.
@@ -366,14 +382,14 @@ export default function Home() {
             </div>
             {/* Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-2 mb-4 md:mb-2 text-center">
-              <div className="bg-blue-100 rounded-lg p-4 md:p-6">
+              <div className="bg-blue-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(147,197,253,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Competitive Edge</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   Stay ahead in the market by leveraging VocaB.AI's innovative and transformative capabilities.
                 </p>
               </div>
 
-              <div className="bg-blue-100 rounded-lg p-4 md:p-6">
+              <div className="bg-blue-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(147,197,253,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Comprehensive Analytics Suite</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   A wide range of tools for analyzing multiple data formats, providing a holistic view of business
@@ -383,20 +399,20 @@ export default function Home() {
             </div>
             {/* Row 3 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-2 text-center">
-              <div className="bg-green-100 rounded-lg p-4 md:p-6">
+              <div className="bg-green-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(34,197,94,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Seasoned AI Professionals</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   A team of experienced experts dedicated to delivering high-quality results.
                 </p>
               </div>
 
-              <div className="bg-orange-100 rounded-lg p-4 md:p-6">
+              <div className="bg-orange-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(251,146,60,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Enhanced Operational Efficiency</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   Boost productivity and innovation processes through intelligent analytics.
                 </p>
               </div>
-              <div className="bg-purple-100 rounded-lg p-4 md:p-6">
+              <div className="bg-purple-100 rounded-lg p-4 md:p-6 transition-shadow duration-300 hover:shadow-[0_2px_12px_0_rgba(192,132,252,0.3)]">
                 <h3 className="text-base md:text-lg font-bold mb-2">Tailored Solutions</h3>
                 <p className="text-xs md:text-sm text-gray-700">
                   Customizable solution solutions designed to address unique business challenges.
