@@ -74,7 +74,7 @@ yarn dev
 
 ### Gallery Carousel
 - Infinite scroll implementation
-- Shows 4 images at a time (desktop), responsive for mobile
+- Shows 5 images at a time (desktop), responsive for mobile
 - Smooth transitions between slides
 - Auto-scrolls every 2 seconds (pauses on hover)
 - Navigation controls (chevrons)
@@ -119,14 +119,6 @@ yarn dev
 - **Gallery Images:**
   - Edit the `galleryImages` array in `GalleryCarousel.tsx` to update images and captions.
 
-## 🔧 Configuration
-
-The project uses various configuration files:
-
-- `next.config.mjs`: Next.js configuration
-- `tailwind.config.ts`: Tailwind CSS customization
-- `tsconfig.json`: TypeScript configuration
-
 ## 📱 Responsive Design
 
 The website is fully responsive and optimized for:
@@ -134,25 +126,6 @@ The website is fully responsive and optimized for:
 - Tablet (768px - 1199px)
 - Mobile (320px - 767px)
 
-## 🎨 Design System
-
-### Colors
-- Primary: #002CCD (Blue)
-- Text: Custom grayscale palette
-- Background: White to blue gradient
-- Accent colors for different sections
-
-### Typography
-- Font: Arial, Helvetica, sans-serif
-- Responsive sizing
-- Optimized readability
-
-## 🔍 SEO
-
-- Optimized meta tags
-- Semantic HTML structure
-- Image optimization
-- Performance optimization
 
 ## 🛠️ Development
 
@@ -172,20 +145,3 @@ npm start
 npm run lint
 ```
 
-### Best Practices
-
-- Use TypeScript for type safety
-- Follow component-based architecture
-- Implement responsive design
-- Optimize images and assets
-- Maintain clean code structure
-
-## 📝 License
-
-[Add your license here]
-
-## 👥 Contact
-
-For any queries or support:
-- Email: contact@vocabai.com
-- Website: [vocabai.com](https://vocabai.com) 
