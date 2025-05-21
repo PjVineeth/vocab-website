@@ -297,7 +297,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Text Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5 p-5">
+                <div className="h-50 flex items-center justify-center p-5">
                   <Image
                     src="/textanalytics.png"
                     alt="Text Analytics"
@@ -317,7 +317,7 @@ export default function Home() {
 
               {/* Audio Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5 p-5">
+                <div className="h-50 flex items-center justify-center p-5">
                   <Image
                     src="/audioanalytics.png"
                     alt="Audio Analytics"
@@ -338,7 +338,7 @@ export default function Home() {
 
               {/* Image Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5 p-5">
+                <div className="h-50 flex items-center justify-center p-5">
                   <Image
                     src="/imageanalytics.png"
                     alt="Image Analytics"
