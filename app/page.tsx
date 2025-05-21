@@ -10,6 +10,7 @@ import TeamCarousel from "./components/TeamCarousel"
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Features", href: "#features" },
+  { label: "Demo", href: "#demo" },
   { label: "Team", href: "#team" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact Us", href: "#contact" },
@@ -193,61 +194,63 @@ export default function Home() {
         isScrolled ? 'pt-[70px]' : 'pt-[86px]'
       }`}>
         {/* Hero Section */}
-        <section id="home" className="relative bg-gradient-to-b from-blue-50 to-white py-16">
+        <section id="home" className="relative bg-gradient-to-b from-blue-50 to-white">
           <div className="container mx-auto px-4 md:px-20">
             <div className="flex flex-col items-center">
               <div className="relative w-full max-w-2xl mx-auto mb-8">
-                <div className="absolute left-2 sm:-left-46 top-20 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+              <div className="absolute left-2 sm:-left-46 top-20 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
                   <div className="bg-white rounded-full px-3 md:px-4 py-2 md:py-3 text-xs hover:bg-opacity-90 transition-all duration-300">
                     Conversational AI
                   </div>
                 </div>
-                <div className="absolute right-2 md:-right-10 top-4 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+                <div className="absolute right-10 mt-8 md:-right-10 top-4 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
                   <div className="bg-white rounded-full px-2 md:px-3 py-2 text-xs hover:bg-opacity-90 transition-all duration-300">
                     Agentic AI
                   </div>
                 </div>
-                <div className="absolute right-0 md:right-0 top-28 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+                <div className="absolute right-0 mt-8 md:right-10 top-28 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
                   <div className="bg-white rounded-full px-3 md:px-4 py-2 text-xs hover:bg-opacity-90 transition-all duration-300">
                     CRM
                   </div>
                 </div>
                 <Image
-                  src="/hero.svg"
+                  src="/Hero2.svg"
                   alt="AI Analytics Illustration"
-                  width={800}
+                  width={1200}
                   height={400}
-                  className="mx-auto w-full max-w-[800px] -mt-16"
+                  className="mx-auto md:-ml-28 md:max-w-[1200px] sm:max-w-[900px] w-auto -mt-8"
                 />
 
-                <div className="text-center max-w-3xl px-4 -mt-40 md:-mt-80">
-                <p className="text-lg md:text-xl mt-44 text-opacity-60 text-gray-900 mb-4">Image, Audio and Text Analytics</p>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                  Unlock Valuable Insights From
-                  <br className="hidden md:block" />
-                  Real Life Conversations
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 text-opacity-60 mb-6">
-                  Harnessing <span className="font-bold">Artificial Intelligence</span> for transforming businesses
-                </p>
-                <div className="w-24 h-[2px] bg-gradient-to-r from-[#002CCD] to-[#002CCD] mx-auto"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                  <div className="text-center max-w-3xl px-4">
+                    <p className="text-lg md:text-xl mt-72 text-opacity-60 text-gray-900 mb-4">Image, Audio and Text Analytics</p>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+                      Unlock Valuable Insights From
+                      <br className="hidden md:block" />
+                      Real Life Conversations
+                    </h2>
+                    <p className="text-base md:text-lg text-gray-600 text-opacity-60 mb-6">
+                      Harnessing <span className="font-bold">Artificial Intelligence</span> for transforming businesses
+                    </p>
+                    <div className="w-24 h-[2px] bg-gradient-to-r from-[#002CCD] to-[#002CCD] mx-auto"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* Data Potential Section */}
-        <section id="features" className="py-16 bg-blue-50">
+        <section id="features" className="py-8 bg-blue-50">
           <div className="container mx-auto px-4 md:px-20">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Unlock The Full   
+                <h2 className="text-2xl md:text-2xl font-bold mb-4">
+                  Unlock The Full-Potential
                   <br className="hidden md:block" />
-                  Potential Of Your Data
+                  of Speech, Text, and Image Data
                 </h2>
-                <div className="flex flex-row gap-2 w-full">
+                <div className="flex flex-row gap-2 w-full mt-8">
                   <div className="flex-1">
                     <Image
                       src="/d1.svg"
@@ -277,14 +280,12 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 md:mt-0">
+              <div className="mt-8 md:mt-4">
                 <p className="text-gray-500 mb-4">
-                  With our advanced AI-based analytics, clients can automate processes, enhance decision-making, and drive
-                  growth.
+                  <span className="text-blue-500">Vocab.AI</span> stands at the forefront of advanced analytics, empowering businesses with actionable insights derived from diverse data sources. Specializing in the synergistic application of data analytics, speech analytics, and image analytics, the company unlocks hidden patterns and valuable intelligence. 
                 </p>
                 <p className="text-gray-500">
-                  From natural language processing, speech recognition and sentiment analysis to image recognition, our
-                  expert team develops tailored solutions that transform data into actionable intelligence.
+                <span className="text-blue-500">Vocab.AI</span> distinguishes itself through its deep mastery of speech recognition and synthesis across a wide spectrum of global and regional languages, sophisticated text analytics using and natural language processing capabilities, enabling comprehensive understanding and interpretation of both spoken and written communication along with images and video modalities. <b>Vocab.AI</b> commits to provide unparalleled solutions for businesses seeking to leverage the full potential of their unstructured data.
                 </p>
               </div>
             </div>
@@ -299,7 +300,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center p-5">
                   <Image
-                    src="/textanalytics.png"
+                    src="/Text.png"
                     alt="Text Analytics"
                     width={400}
                     height={120}
@@ -308,9 +309,8 @@ export default function Home() {
                 <div className="p-4 md:p-6">
                   <h3 className="text-xl font-bold text-center mb-4 md:mb-6">Text Analytics</h3>
                   <p className="text-sm md:text-base text-center text-gray-600 opacity-60">
-                    Using NLP and machine learning, we analyze client-based inputs and conversations to enable data-driven
-                    decisions. Our focus is on enhancing customer experience, improving operational efficiency, and
-                    driving innovation for a competitive edge.
+                  By leveraging advanced Natural Language Processing (NLP) and machine learning techniques, we can automatically analyze vast volumes of client conversations (from call transcripts, emails, chats, etc.) to identify recurring themes, customer pain points, and frequently asked questions, revealing critical areas for service improvement and operational adjustments.Our text analytics capabilities enable the identification and categorization of customer sentiment expressed within conversations, allowing businesses to proactively address negative feedback, recognize promoters, and tailor engagement strategies for enhanced customer satisfaction and loyalty. <br />
+                  <b>Vocab.AI</b> possesses the ability to analyze conversations across multiple languages allowing global businesses to gain a unified understanding of their diverse customer base, identifying regional nuances in needs and preferences, and enabling the development of culturally relevant and effective strategies.
                   </p>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center p-5">
                   <Image
-                    src="/audioanalytics.png"
+                    src="/Audio.png"
                     alt="Audio Analytics"
                     width={400}
                     height={120}
@@ -329,9 +329,7 @@ export default function Home() {
                 <div className="p-4 md:p-6">
                   <h3 className="text-xl font-bold text-center mb-4 md:mb-6">Audio Analytics</h3>
                   <p className="text-sm md:text-base text-center text-gray-600 opacity-60">
-                    Using speech recognition, NLP, and machine learning, our tools help analyze audio data to improve
-                    customer service, boost efficiency, and drive innovation. Our solutions identify emotions, sentiment
-                    and speech patterns, enabling insights-driven decisions.
+                  Vocab.AI's speech analytics platform can automatically detect and analyze customer sentiment, emotion, and tone within call center audio, providing real-time insights into customer satisfaction levels, frustration points, and overall experience, enabling immediate intervention or targeted follow-up. By identifying key phrases, keywords, and conversational patterns, CC.in can pinpoint common customer issues, product defects, or service failures, allowing businesses to uncover root causes, streamline problem resolution, and proactively address systemic challenges. Our speech analytics enables comprehensive agent performance evaluation by analyzing adherence to scripts, identifying best practices from top performers, and flagging areas for coaching and training, leading to improved agent efficiency, compliance, and customer service quality. 
                   </p>
                 </div>
               </div>
@@ -340,7 +338,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <div className="h-50 flex items-center justify-center p-5">
                   <Image
-                    src="/imageanalytics.png"
+                    src="/Image.png"
                     alt="Image Analytics"
                     width={400}
                     height={120}
@@ -350,9 +348,7 @@ export default function Home() {
                 <div className="p-4 md:p-6">
                   <h3 className="text-xl font-bold text-center mb-4 md:mb-6">Image Analytics</h3>
                   <p className="text-sm md:text-base text-center text-gray-600 opacity-60">
-                    Our solutions support object detection, visual recognition, and information extraction from images,
-                    helping clients instantly access quality data. Leveraging cutting-edge computer vision technology, it
-                    continues to open new opportunities in service and operations.
+                  Our advanced image recognition and object detection algorithms can automatically analyze process images (e.g., manufacturing lines, quality control checks, infrastructure inspections) to identify anomalies, defects, or deviations from expected standards, enabling proactive quality control and early detection of potential issues before they escalate. By applying image segmentation and measurement techniques, the solution can extract precise quantitative data from process images, and further the patterns and trends indicative of process inefficiencies, bottlenecks, or areas for improvement. This predictive capability allows for data-driven decisions aimed at streamlining workflows, reducing waste, and enhancing overall operational efficiency. Vocab.AI can leverage image analytics for visual documentation and compliance by automatically categorizing and annotating process images, creating a searchable visual record of procedures, inspections, and outcomes. This facilitates audits, regulatory compliance, and knowledge sharing across the organization.
                   </p>
                 </div>
               </div>

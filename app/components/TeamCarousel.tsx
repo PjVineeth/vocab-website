@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Linkedin, Github } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { teamMembers, TeamMember } from "@/app/data/teamMembers"
 
@@ -10,18 +10,17 @@ export default function TeamCarousel() {
   const [activeIndex, setActiveIndex] = useState(2)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
 
   useEffect(() => {
-    if (isHovered) return
+    if (isHovered || selectedMember) return
 
     const interval = setInterval(() => {
-      if (!isAnimating) {
-        setActiveIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1))
-      }
+      setActiveIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1))
     }, 2000)
 
     return () => clearInterval(interval)
-  }, [isHovered, isAnimating])
+  }, [isHovered, selectedMember])
 
   const handlePrev = () => {
     if (isAnimating) return
@@ -38,10 +37,9 @@ export default function TeamCarousel() {
   }
 
   const handleMemberClick = (index: number) => {
-    if (isAnimating || index === activeIndex) return
-    setIsAnimating(true)
+    if (isAnimating) return
     setActiveIndex(index)
-    setTimeout(() => setIsAnimating(false), 500)
+    setSelectedMember(teamMembers[index])
   }
 
   const getCardPosition = (index: number) => {
@@ -55,12 +53,16 @@ export default function TeamCarousel() {
     return "hidden"
   }
 
+  // Explicit hover handlers
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   return (
     <div className="relative w-full max-w-full overflow-x-hidden">
       <div 
         className="relative w-full h-[350px] sm:h-[500px] overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="relative w-full h-full flex items-center justify-center">
           {teamMembers.map((member, index) => (
@@ -71,8 +73,8 @@ export default function TeamCarousel() {
                 getCardPosition(index) === "center" && "z-20 scale-100 translate-x-0 border-2 border-white mx-1 sm:mx-4",
                 getCardPosition(index) === "left-1" && "z-10 scale-95 -translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
                 getCardPosition(index) === "right-1" && "z-10 scale-95 translate-x-[70%] border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "left-2" && "z-0 scale-90 -translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
-                getCardPosition(index) === "right-2" && "z-0 scale-90 translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
+                // getCardPosition(index) === "left-2" && "z-0 scale-90 -translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
+                // getCardPosition(index) === "right-2" && "z-0 scale-90 translate-x-[120%] border-2 border-white mx-1 sm:mx-4",
                 getCardPosition(index) === "hidden" && "opacity-0 scale-50",
               )}
               onClick={() => handleMemberClick(index)}
@@ -99,10 +101,10 @@ export default function TeamCarousel() {
             </div>
           ))}
         </div>
-
+        
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
+          className="absolute left-4 md:left-48 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
           aria-label="Previous member"
         >
           <ChevronLeft className="h-6 w-6" />
@@ -110,12 +112,46 @@ export default function TeamCarousel() {
 
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
+          className="absolute right-4 md:right-48 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
           aria-label="Next member"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
       </div>
+
+      {selectedMember && (
+        <TeamMemberModal member={selectedMember} onClose={() => {
+          setSelectedMember(null);
+          setIsAnimating(false);
+        }} />
+      )}
     </div>
   )
+}
+
+function TeamMemberModal({ member, onClose }: { member: TeamMember, onClose: () => void }) {
+  if (!member) return null;
+  return (
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+      <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full relative flex flex-col items-center">
+        <button onClick={onClose} className="absolute top-4 right-4 text-2xl font-bold">&times;</button>
+        <img src={member.image} alt={member.name} className="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-white shadow" />
+        <div className="flex space-x-6 mb-4 justify-center">
+          {member.linkedin && (
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-blue-700 hover:text-blue-900">
+              <Linkedin className="h-7 w-7" />
+            </a>
+          )}
+          {member.github && (
+            <a href={member.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-800 hover:text-black">
+              <Github className="h-7 w-7" />
+            </a>
+          )}
+        </div>
+        <h2 className="text-2xl font-bold text-center mb-1">{member.name}</h2>
+        <p className="text-lg text-gray-600 text-center mb-4">{member.role}</p>
+        <p className="mb-2 text-center"><b>Experience: </b>{member.bio}</p>
+      </div>
+    </div>
+  );
 } 
