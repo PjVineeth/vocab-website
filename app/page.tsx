@@ -243,32 +243,38 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Unlock The Full
+                  Unlock The Full   
                   <br className="hidden md:block" />
                   Potential Of Your Data
                 </h2>
-                <div className="flex gap-4">
-                  <Image
-                    src="/d1.svg"
-                    alt="Data Visualization 1"
-                    width={200}
-                    height={120}
-                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
-                  />
-                  <Image
-                    src="/d2.svg"
-                    alt="Data Visualization 2"
-                    width={200}
-                    height={120}
-                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
-                  />
-                  <Image
-                    src="/d3.svg"
-                    alt="Data Visualization 3"
-                    width={200}
-                    height={120}
-                    className="rounded-lg w-full max-w-[200px] transition-transform duration-300 hover:scale-110"
-                  />
+                <div className="flex flex-row gap-2 w-full">
+                  <div className="flex-1">
+                    <Image
+                      src="/d1.svg"
+                      alt="Data Visualization 1"
+                      width={400}
+                      height={240}
+                      className="rounded-lg w-full h-auto aspect-[5/3] object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Image
+                      src="/d2.svg"
+                      alt="Data Visualization 2"
+                      width={400}
+                      height={240}
+                      className="rounded-lg w-full h-auto aspect-[5/3] object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Image
+                      src="/d3.svg"
+                      alt="Data Visualization 3"
+                      width={400}
+                      height={240}
+                      className="rounded-lg w-full h-auto aspect-[5/3] object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-8 md:mt-0">
@@ -291,13 +297,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Text Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5">
+                <div className="h-50 flex items-center justify-center mt-5 p-5">
                   <Image
                     src="/textanalytics.png"
                     alt="Text Analytics"
                     width={400}
                     height={120}
-                    className="rounded-[10px] object-cover w-full max-w-[400px]"
                   />
                 </div>
                 <div className="p-4 md:p-6">
@@ -312,7 +317,7 @@ export default function Home() {
 
               {/* Audio Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5">
+                <div className="h-50 flex items-center justify-center mt-5 p-5">
                   <Image
                     src="/audioanalytics.png"
                     alt="Audio Analytics"
@@ -333,7 +338,7 @@ export default function Home() {
 
               {/* Image Analytics */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <div className="h-50 flex items-center justify-center mt-5">
+                <div className="h-50 flex items-center justify-center mt-5 p-5">
                   <Image
                     src="/imageanalytics.png"
                     alt="Image Analytics"
