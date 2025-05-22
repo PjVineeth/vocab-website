@@ -132,25 +132,31 @@ export default function TeamCarousel() {
 function TeamMemberModal({ member, onClose }: { member: TeamMember, onClose: () => void }) {
   if (!member) return null;
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full relative flex flex-col items-center">
-        <button onClick={onClose} className="absolute top-4 right-4 text-2xl font-bold">&times;</button>
-        <img src={member.image} alt={member.name} className="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-white shadow" />
-        <div className="flex space-x-6 mb-4 justify-center">
+    <div className="fixed inset-0 bg-black/10 flex items-center justify-center z-50">
+      <div className="bg-white rounded-xl shadow-2xl p-3 sm:p-5 max-w-xs sm:max-w-sm w-full relative flex flex-col items-center overflow-visible">
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 hover:text-black z-50 transition-all"
+        >
+          <span className="text-lg leading-none">&times;</span>
+        </button>
+        <img src={member.image} alt={member.name} className="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-4 border-white shadow" />
+        <div className="flex space-x-4 mb-2 justify-center">
           {member.linkedin && (
             <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-blue-700 hover:text-blue-900">
-              <Linkedin className="h-7 w-7" />
+              <Linkedin className="h-5 w-5" />
             </a>
           )}
           {member.github && (
             <a href={member.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-800 hover:text-black">
-              <Github className="h-7 w-7" />
+              <Github className="h-5 w-5" />
             </a>
           )}
         </div>
-        <h2 className="text-2xl font-bold text-center mb-1">{member.name}</h2>
-        <p className="text-lg text-gray-600 text-center mb-4">{member.role}</p>
-        <p className="mb-2 text-center"><b>Experience: </b>{member.bio}</p>
+        <h2 className="text-lg font-bold text-center mb-1">{member.name}</h2>
+        <p className="text-sm text-gray-600 text-center mb-2">{member.role}</p>
+        <p className="mb-1 text-md text-center"><b>Experience: </b>{member.bio}</p>
       </div>
     </div>
   );

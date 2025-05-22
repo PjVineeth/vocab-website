@@ -198,18 +198,18 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-20">
             <div className="flex flex-col items-center">
               <div className="relative w-full max-w-2xl mx-auto mb-8">
-              <div className="absolute left-2 sm:-left-46 top-20 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
-                  <div className="bg-white rounded-full px-3 md:px-4 py-2 md:py-3 text-xs hover:bg-opacity-90 transition-all duration-300">
+                <div className="absolute left-2 sm:-left-46 top-20 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+                  <div className="bg-white rounded-full px-2 md:px-4 py-1 md:py-3 text-xxs md:text-xs hover:bg-opacity-90 transition-all duration-300">
                     Conversational AI
                   </div>
                 </div>
                 <div className="absolute right-10 mt-8 md:-right-10 top-4 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
-                  <div className="bg-white rounded-full px-2 md:px-3 py-2 text-xs hover:bg-opacity-90 transition-all duration-300">
+                  <div className="bg-white rounded-full px-2 md:px-4 py-1 md:py-3 text-xxs md:text-xs hover:bg-opacity-90 transition-all duration-300">
                     Agentic AI
                   </div>
                 </div>
-                <div className="absolute right-0 mt-8 md:right-10 top-28 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
-                  <div className="bg-white rounded-full px-3 md:px-4 py-2 text-xs hover:bg-opacity-90 transition-all duration-300">
+                <div className="absolute right-0 md:mt-8 sm:-mt-8 md:right-10 md:top-28 top-20 p-[1px] rounded-full bg-gradient-to-b from-[#82C4FF] to-[#56B0FF] shadow-sm animate-gradient hover:scale-105 transition-transform duration-300">
+                  <div className="bg-white rounded-full px-2 md:px-4 py-1 md:py-3 text-xxs md:text-xs hover:bg-opacity-90 transition-all duration-300">
                     CRM
                   </div>
                 </div>
@@ -218,21 +218,23 @@ export default function Home() {
                   alt="AI Analytics Illustration"
                   width={1200}
                   height={400}
-                  className="mx-auto md:-ml-28 md:max-w-[1200px] sm:max-w-[900px] w-auto -mt-8"
+                  className="mx-auto md:-ml-28 md:max-w-[1200px] sm:max-w-[900px] w-auto sm:mt-8 md:-mt-8"
                 />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <div className="text-center max-w-3xl px-4">
-                    <p className="text-lg md:text-xl mt-72 text-opacity-60 text-gray-900 mb-4">Image, Audio and Text Analytics</p>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+                <div className="relative flex flex-col items-center justify-center -mt-10 sm:-mt-24 md:absolute md:inset-0 md:mt-0 pointer-events-none">
+                  <div className="text-center max-w-3xl px-4 sm:px-2">
+                    <p className="text-base md:text-lg md:mt-72 text-opacity-60 text-gray-900 mb-2 md:mb-4">
+                      Image, Audio and Text Analytics
+                    </p>
+                    <h2 className="text-xl md:text-2xl lg:text-4xl font-bold mb-2 md:mb-4">
                       Unlock Valuable Insights From
                       <br className="hidden md:block" />
                       Real Life Conversations
                     </h2>
-                    <p className="text-base md:text-lg text-gray-600 text-opacity-60 mb-6">
+                    <p className="text-sm md:text-base text-gray-600 text-opacity-60 mb-4 md:mb-6">
                       Harnessing <span className="font-bold">Artificial Intelligence</span> for transforming businesses
                     </p>
-                    <div className="w-24 h-[2px] bg-gradient-to-r from-[#002CCD] to-[#002CCD] mx-auto"></div>
+                    <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-[#002CCD] to-[#002CCD] mx-auto"></div>
                   </div>
                 </div>
               </div>
@@ -440,7 +442,7 @@ export default function Home() {
         </section>
 
         {/* Contact Us */}
-        <section id="contact" className="py-16 bg-gray-900 text-white">
+        <section id="contact" className="py-24 bg-gray-900 text-white">
           <div className="container mx-auto px-4 md:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
@@ -483,7 +485,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white text-black p-4 md:p-6 rounded-lg">
+              <div className="bg-white text-black p-4 md:p-6 md:py-12 rounded-lg">
                 <p className="text-sm text-gray-700 mb-4">
                   Please fill out the form below to send us an email. We will get back to you as soon as possible.
                 </p>
