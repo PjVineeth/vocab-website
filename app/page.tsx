@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight, Facebook, Twitter , Youtube, MapPin, Phone, Mail } from "lucide-react"
+import { ChevronLeft, ChevronRight, Facebook, Twitter , Youtube, MapPin, Phone, Mail, User } from "lucide-react"
 import { useState, useEffect } from "react"
 import { teamMembers } from "./data/teamMembers"
 import GalleryCarousel from "./components/GalleryCarousel"
 import TeamCarousel from "./components/TeamCarousel"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -17,8 +18,10 @@ const navLinks = [
 ]
 
 export default function Home() {
+  const { data: session } = useSession();
   const [active, setActive] = useState("Home")
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -75,6 +78,21 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Add click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.profile-menu-container')) {
+        setIsProfileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus({ loading: true, success: false, error: '' });
@@ -119,17 +137,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden p-2" 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className={`flex space-x-8 transition-all duration-300 ${
@@ -158,6 +165,64 @@ export default function Home() {
             </ul>
           </nav>
 
+          {/* Login Button / Profile Picture */}
+          <div className="hidden md:block relative profile-menu-container">
+            {session ? (
+              <div>
+                <button
+                  onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                  className="flex items-center space-x-2 focus:outline-none"
+                >
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-blue-600 bg-white flex items-center justify-center">
+                    {session.user?.image ? (
+                      <Image
+                        src={session.user.image}
+                        alt="Profile"
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <User className="w-8 h-8 text-blue-600" />
+                    )}
+                  </div>
+                </button>
+                
+                {/* Dropdown Menu */}
+                {isProfileMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    <div className="px-4 py-2 text-sm text-gray-700 border-b">
+                      {session.user?.name}
+                    </div>
+                    <button
+                      onClick={() => signOut()}
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={() => signIn('google')}
+                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+              >
+                Login
+              </button>
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <button 
+            className="md:hidden p-2" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
           {/* Mobile Navigation */}
           <div className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 ${
             isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -184,6 +249,38 @@ export default function Home() {
                   </Link>
                 </li>
               ))}
+              <li className="border-t mt-2 pt-2 px-3 flex items-center">
+                {session ? (
+                  <>
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-blue-600 bg-white flex items-center justify-center mr-2">
+                      {session.user?.image ? (
+                        <Image
+                          src={session.user.image}
+                          alt="Profile"
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <User className="w-6 h-6 text-blue-600" />
+                      )}
+                    </div>
+                    <span className="text-sm mr-2 truncate max-w-[100px]">{session.user?.name || 'Profile'}</span>
+                    <button
+                      onClick={() => { signOut(); setIsMobileMenuOpen(false); }}
+                      className="ml-auto text-blue-600 text-xs font-medium hover:underline"
+                    >
+                      Sign out
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => { signIn('google'); setIsMobileMenuOpen(false); }}
+                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+                  >
+                    Login
+                  </button>
+                )}
+              </li>
             </ul>
           </div>
         </div>
