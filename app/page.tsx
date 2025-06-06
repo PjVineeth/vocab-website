@@ -74,7 +74,12 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
+      console.log('Scroll position:', scrollPosition)
       setIsScrolled(scrollPosition > 50)
+      // Close services dropdown on scroll
+      console.log('Closing dropdowns...')
+      setIsServicesDropdownOpen(false)
+      setIsMobileServicesOpen(false)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -190,7 +195,11 @@ export default function Home() {
                 <li className="relative group">
                   <button
                     className={`flex items-center text-sm transition-all duration-300 font-small hover:text-primary ${active === 'Services' ? 'font-medium border-b-2 border-primary pb-1' : ''}`}
-                    onClick={() => setIsServicesDropdownOpen((open) => !open)}
+                    onClick={() => {
+                      console.log('Services button clicked')
+                      console.log('Current dropdown state:', isServicesDropdownOpen)
+                      setIsServicesDropdownOpen((open) => !open)
+                    }}
                   >
                     Services
                     <ChevronDown
