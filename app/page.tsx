@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight, Facebook, Twitter , Youtube, MapPin, Phone, Mail, User } from "lucide-react"
+import { ChevronLeft, ChevronRight, Facebook, Twitter , Youtube, MapPin, Phone, Mail, User, ChevronDown } from "lucide-react"
 import { useState, useEffect } from "react"
 import { teamMembers } from "./data/teamMembers"
 import GalleryCarousel from "./components/GalleryCarousel"
@@ -11,7 +11,7 @@ import { signIn, signOut, useSession } from "next-auth/react"
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Features", href: "#features" },
-  { label: "Demo", href: "#demo" },
+  { label: "Products", href: "#products" },
   { label: "Team", href: "#team" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact Us", href: "#contact" },
@@ -33,6 +33,8 @@ export default function Home() {
     error: ''
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   // Add intersection observer for section tracking
   useEffect(() => {
@@ -117,6 +119,27 @@ export default function Home() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Dynamically build navLinks without Services
+  const navLinksBase = [
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "Products", href: "#products" },
+    { label: "Team", href: "#team" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Contact Us", href: "#contact" },
+  ];
+
+  // Dynamically build navLinks with 'Services' if logged in
+  const navLinksWithServices = [
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "Products", href: "#products" },
+    { label: "Team", href: "#team" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Contact Us", href: "#contact" },
+    ...(session ? [{ label: "Services", href: "#services" }] : []),
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Header */}
@@ -142,7 +165,7 @@ export default function Home() {
             <ul className={`flex space-x-8 transition-all duration-300 ${
               isScrolled ? 'space-x-6' : 'space-x-8'
             }`}>
-              {navLinks.map((link) => (
+              {navLinksBase.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -162,6 +185,35 @@ export default function Home() {
                   </Link>
                 </li>
               ))}
+              {/* Services Dropdown (Desktop) */}
+              {session && (
+                <li className="relative group">
+                  <button
+                    className={`flex items-center text-sm transition-all duration-300 font-small hover:text-primary ${active === 'Services' ? 'font-medium border-b-2 border-primary pb-1' : ''}`}
+                    onClick={() => setIsServicesDropdownOpen((open) => !open)}
+                  >
+                    Services
+                    <ChevronDown
+                      className={`w-4 h-4 ml-1 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {(isServicesDropdownOpen) && (
+                    <ul
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                    >
+                      <li>
+                        <a href="#sarathi-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">SARATHI-AI</a>
+                      </li>
+                      <li>
+                        <a href="#chitra-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">CHITRA-AI</a>
+                      </li>
+                      <li>
+                        <a href="#vocab-assist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vocab Assist</a>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              )}
             </ul>
           </nav>
 
@@ -228,7 +280,7 @@ export default function Home() {
             isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}>
             <ul className="py-2">
-              {navLinks.map((link) => (
+              {navLinksBase.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -249,6 +301,33 @@ export default function Home() {
                   </Link>
                 </li>
               ))}
+              {/* Services Dropdown (Mobile) */}
+              {session && (
+                <li>
+                  <button
+                    className="flex items-center w-full px-3 py-1 text-sm text-gray-600 hover:text-primary focus:outline-none"
+                    onClick={() => setIsMobileServicesOpen((open) => !open)}
+                  >
+                    Services
+                    <ChevronDown
+                      className={`w-4 h-4 ml-1 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isMobileServicesOpen && (
+                    <ul className="pl-6">
+                      <li>
+                        <a href="#sarathi-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">SARATHI-AI</a>
+                      </li>
+                      <li>
+                        <a href="#chitra-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">CHITRA-AI</a>
+                      </li>
+                      <li>
+                        <a href="#vocab-assist" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">Vocab Assist</a>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              )}
               <li className="border-t mt-2 pt-2 px-3 flex items-center">
                 {session ? (
                   <>
@@ -392,7 +471,7 @@ export default function Home() {
         </section>
 
         {/* Analytics Features */}
-        <section id="demo" className="py-16 bg-blue-50">
+        <section id="products" className="py-16 bg-blue-50">
           <div className="container mx-auto px-4 md:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Text Analytics */}
