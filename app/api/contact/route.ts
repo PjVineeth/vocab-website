@@ -18,14 +18,14 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: '22bcs086@iiitdw.ac.in',
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `New Website Enquiry from ${name}`,
       text: `
 Name: ${name}
 Email: ${email}
 Message: ${message}
       `,
       html: `
-<h2>New Contact Form Submission</h2>
+<h2>Website Enquiry</h2>
 <p><strong>Name:</strong> ${name}</p>
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Message:</strong> ${message}</p>
