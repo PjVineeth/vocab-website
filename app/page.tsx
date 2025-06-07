@@ -212,7 +212,7 @@ export default function Home() {
                       className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
                     >
                       <li>
-                        <a href="#sarathi-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">SARATHI-AI</a>
+                        <a href="http://27.111.72.61:900" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">SARATHI-AI</a>
                       </li>
                       <li>
                         <a href="#chitra-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">CHITRA-AI</a>
@@ -346,7 +346,7 @@ export default function Home() {
                   {isMobileServicesOpen && (
                     <ul className="pl-6">
                       <li>
-                        <a href="#sarathi-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">SARATHI-AI</a>
+                        <a href="http://27.111.72.61:900" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">SARATHI-AI</a>
                       </li>
                       <li>
                         <a href="#chitra-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">CHITRA-AI</a>
