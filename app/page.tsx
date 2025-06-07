@@ -218,7 +218,27 @@ export default function Home() {
                         <a href="#chitra-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">CHITRA-AI</a>
                       </li>
                       <li>
-                        <a href="/vocab-assist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vocab Assist</a>
+                        <a 
+                          href="#" 
+                          onClick={async (e) => {
+                            e.preventDefault();
+                            try {
+                              const response = await fetch('/api/start-server');
+                              const data = await response.json();
+                              if (data.success) {
+                                window.location.href = data.url;
+                              } else {
+                                alert('Failed to start Vocab Assist server');
+                              }
+                            } catch (error) {
+                              console.error('Error:', error);
+                              alert('Failed to start Vocab Assist server');
+                            }
+                          }}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Vocab Assist
+                        </a>
                       </li>
                     </ul>
                   )}
@@ -332,7 +352,27 @@ export default function Home() {
                         <a href="#chitra-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">CHITRA-AI</a>
                       </li>
                       <li>
-                        <a href="/vocab-assist" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">Vocab Assist</a>
+                        <a 
+                          href="#" 
+                          onClick={async (e) => {
+                            e.preventDefault();
+                            try {
+                              const response = await fetch('/api/start-server');
+                              const data = await response.json();
+                              if (data.success) {
+                                window.location.href = data.url;
+                              } else {
+                                alert('Failed to start Vocab Assist server');
+                              }
+                            } catch (error) {
+                              console.error('Error:', error);
+                              alert('Failed to start Vocab Assist server');
+                            }
+                          }}
+                          className="block px-3 py-1 text-sm text-gray-600 hover:text-primary"
+                        >
+                          Vocab Assist
+                        </a>
                       </li>
                     </ul>
                   )}
