@@ -13,6 +13,11 @@ A modern, responsive website for VocaB.AI, showcasing AI-powered analytics solut
   - Next.js 13+ with App Router
   - Image optimization with next/image
   - Smooth transitions and animations
+- **Google Authentication**:
+  - Integrated AI services:
+    - SARATHI-AI
+    - CHITRA-AI
+    - Vocab Assist (AI Voice Chat)
 
 ## 🛠️ Tech Stack
 
@@ -44,6 +49,7 @@ vocabai-website/
 ### Prerequisites
 
 - Node.js 18.x or later
+- Python 3.x (for Vocab Assist feature)
 - npm or yarn
 
 ### Installation
@@ -61,7 +67,16 @@ npm install
 yarn install
 ```
 
-3. Run the development server:
+3. Set up environment variables:
+Create a `.env.local` file with the following:
+```
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
@@ -95,6 +110,18 @@ yarn dev
 - Form validation
 - Social media links
 - Business information display
+
+### Vocab Assist
+- AI-powered voice chat interface
+- Real-time speech processing
+- Automatic server startup
+- Seamless integration with main website
+
+To use Vocab Assist:
+1. Log in to the website
+2. Navigate to Services
+3. Click on "Vocab Assist"
+4. The voice chat interface will automatically start
 
 ## 📱 Mobile Customization & Responsiveness
 
