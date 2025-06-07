@@ -12,10 +12,20 @@ const handler = NextAuth({
     signIn: '/',
   },
   callbacks: {
-    async session({ session, token }) {
+    async session({ session, token, user }) {
+      if (session.user) {
+        session.user.id = token.sub;
+        // Ensure the image is included in the session
+        if (token.picture) {
+          session.user.image = token.picture as string;
+        }
+      }
       return session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile }) {
+      if (profile) {
+        token.picture = profile.picture;
+      }
       return token;
     },
   },

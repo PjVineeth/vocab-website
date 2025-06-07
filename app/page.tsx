@@ -194,7 +194,8 @@ export default function Home() {
               {session && (
                 <li className="relative group">
                   <button
-                    className={`flex items-center text-sm transition-all duration-300 font-small hover:text-primary ${active === 'Services' ? 'font-medium border-b-2 border-primary pb-1' : ''}`}
+                    className={`flex items-center text-sm transition-all duration-300 font-small hover:text-primary p-4px ${active === 'Services' ? 'font-medium border-b-2 border-primary p-2px' : ''}`}
+                    style={{ padding: '2px' }}
                     onClick={() => {
                       console.log('Services button clicked')
                       console.log('Current dropdown state:', isServicesDropdownOpen)
@@ -217,7 +218,7 @@ export default function Home() {
                         <a href="#chitra-ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">CHITRA-AI</a>
                       </li>
                       <li>
-                        <a href="#vocab-assist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vocab Assist</a>
+                        <a href="/vocab-assist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vocab Assist</a>
                       </li>
                     </ul>
                   )}
@@ -331,7 +332,7 @@ export default function Home() {
                         <a href="#chitra-ai" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">CHITRA-AI</a>
                       </li>
                       <li>
-                        <a href="#vocab-assist" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">Vocab Assist</a>
+                        <a href="/vocab-assist" className="block px-3 py-1 text-sm text-gray-600 hover:text-primary">Vocab Assist</a>
                       </li>
                     </ul>
                   )}
